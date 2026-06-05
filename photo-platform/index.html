@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NoirLens Studio - Photography Portfolio Platform</title>
+    <meta
+      name="description"
+      content="Premium photography portfolio, client proofing, booking, store, and super admin management platform prototype."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-theme-target="header">
+      <a class="brand" href="#home" aria-label="NoirLens Studio home">
+        <span class="brand-mark">NL</span>
+        <span>NoirLens Studio</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#booking">Booking</a>
+        <a href="#proofing">Proofing</a>
+        <a href="#store">Store</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-link" href="admin.html">Admin Login</a>
+        <button class="icon-button" id="modeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">D/L</button>
+        <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu">Menu</button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#booking">Booking</a>
+      <a href="#proofing">Proofing</a>
+      <a href="#store">Store</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-media" role="img" aria-label="Photography studio scene with camera and prints"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+          <div class="hero-content">
+            <p class="eyebrow">Luxury photography management suite</p>
+            <h1>NoirLens Studio</h1>
+            <p>
+              Showcase premium work, book clients, proof private galleries, sell photo products, and manage the entire website from one locked admin panel.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-action" href="#booking">Book a Session</a>
+              <a class="secondary-action" href="#portfolio">View Portfolio</a>
+            </div>
+            <div class="hero-badges" aria-label="Platform highlights">
+              <span>Portfolio showcase</span>
+              <span>Client proofing</span>
+              <span>Online store</span>
+              <span>Admin photo upload</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-summary" aria-label="Landing page feature and stats summary">
+          <div class="landing-strip" aria-label="Landing page feature summary">
+            <article>
+              <span>01</span>
+              <strong>Curated gallery</strong>
+              <small>Masonry portfolio, category filter, search, preview, and share.</small>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>Client workflow</strong>
+              <small>Booking, invoice, private proofing, favorites, and feedback.</small>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>Admin control</strong>
+              <small>Login, edit content, change theme, and upload photos.</small>
+            </article>
+          </div>
+          <div class="hero-stats" aria-label="Studio highlights">
+            <span><strong>428</strong> private galleries</span>
+            <span><strong>9</strong> portfolio categories</span>
+            <span><strong>98%</strong> client approval rate</span>
+            <a class="scroll-cue" href="#portfolio" aria-label="Scroll to portfolio">Explore portfolio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase-section" id="portfolio">
+        <div class="section-heading">
+          <p class="eyebrow">Portfolio gallery</p>
+          <h2>Search, filter, preview, share, and control downloads.</h2>
+          <div class="filter-bar" role="search">
+            <input id="gallerySearch" type="search" placeholder="Search gallery" aria-label="Search gallery" />
+            <div class="category-tabs" id="categoryTabs" aria-label="Gallery categories"></div>
+          </div>
+        </div>
+        <div class="masonry-grid" id="galleryGrid"></div>
+      </section>
+
+      <section class="split-section" id="services">
+        <div>
+          <p class="eyebrow">Services and pricing</p>
+          <h2>Dynamic packages for every assignment.</h2>
+          <p class="muted">
+            Manage wedding, event, corporate, product, and custom plans with comparison rows and online booking CTAs.
+          </p>
+        </div>
+        <div class="pricing-grid" id="pricingGrid"></div>
+      </section>
+
+      <section class="booking-panel" id="booking">
+        <div class="section-heading compact">
+          <p class="eyebrow">Client booking system</p>
+          <h2>Book a session in five steps.</h2>
+        </div>
+        <form class="booking-form" id="bookingForm">
+          <label>
+            Service
+            <select name="service">
+              <option>Wedding Photography</option>
+              <option>Event Photography</option>
+              <option>Corporate Portraits</option>
+              <option>Product Photography</option>
+            </select>
+          </label>
+          <label>
+            Date
+            <input name="date" type="date" required />
+          </label>
+          <label>
+            Time
+            <select name="time">
+              <option>10:00 AM</option>
+              <option>1:00 PM</option>
+              <option>4:00 PM</option>
+              <option>7:00 PM</option>
+            </select>
+          </label>
+          <label>
+            Client name
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Phone
+            <input name="phone" type="tel" placeholder="+8801XXXXXXXXX" required />
+          </label>
+          <button class="primary-action" type="submit">Confirm Booking</button>
+        </form>
+        <div class="payment-options">
+          <div>
+            <p class="eyebrow">Payment gateway</p>
+            <h3>Pay securely with mobile banking</h3>
+          </div>
+          <div class="payment-grid" id="paymentGrid"></div>
+        </div>
+        <div class="confirmation" id="bookingConfirmation" aria-live="polite"></div>
+      </section>
+
+      <section class="dashboard-section" id="dashboard">
+        <div class="section-heading">
+          <p class="eyebrow">Client dashboard</p>
+          <h2>Booking history, invoices, payments, profile, and upcoming sessions.</h2>
+        </div>
+        <div class="dashboard-grid">
+          <article class="metric-card"><span>Total paid</span><strong>$8,420</strong><small>4 invoices downloaded</small></article>
+          <article class="metric-card"><span>Upcoming</span><strong>2</strong><small>Wedding rehearsal and product shoot</small></article>
+          <article class="metric-card"><span>Favorites</span><strong>76</strong><small>Images selected for final edits</small></article>
+          <article class="metric-card"><span>Approvals</span><strong>91%</strong><small>Proofing workflow progress</small></article>
+        </div>
+      </section>
+
+      <section class="proofing-section" id="proofing">
+        <div class="section-heading">
+          <p class="eyebrow">Private proofing</p>
+          <h2>Password-protected albums with approvals, favorites, feedback, and download controls.</h2>
+        </div>
+        <div class="proof-layout">
+          <div class="proof-gallery" id="proofGallery"></div>
+          <aside class="proof-sidebar">
+            <h3>Album controls</h3>
+            <label class="toggle-row"><input type="checkbox" checked /> Watermarked previews</label>
+            <label class="toggle-row"><input type="checkbox" /> Allow downloads</label>
+            <label class="toggle-row"><input type="checkbox" checked /> Password required</label>
+            <textarea id="proofFeedback" placeholder="Client feedback or edit request"></textarea>
+            <button class="secondary-action" id="submitFeedback" type="button">Submit Feedback</button>
+            <p class="status-line" id="proofStatus">18 images awaiting selection.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="store-section" id="store">
+        <div class="section-heading">
+          <p class="eyebrow">Online store</p>
+          <h2>Sell digital photos, presets, prints, albums, frames, and downloads.</h2>
+        </div>
+        <div class="store-grid" id="storeGrid"></div>
+        <aside class="cart-panel" aria-label="Shopping cart">
+          <div>
+            <p class="eyebrow">Shopping cart</p>
+            <h3><span id="cartCount">0</span> item added</h3>
+          </div>
+          <div class="cart-items" id="cartItems"></div>
+          <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">$0</strong>
+          </div>
+          <button class="secondary-action" id="clearCart" type="button">Clear Cart</button>
+        </aside>
+      </section>
+
+      <section class="content-band" id="blog">
+        <div>
+          <p class="eyebrow">Blog and SEO</p>
+          <h2>Stories, tutorials, metadata, Open Graph tags, sitemap, and robots controls.</h2>
+        </div>
+        <div class="article-list" id="blogList"></div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Inquiry form, map panel, WhatsApp CTA, social links, and live chat entry.</h2>
+        </div>
+        <form class="contact-form">
+          <input type="text" placeholder="Name" aria-label="Name" />
+          <input type="email" placeholder="Email" aria-label="Email" />
+          <textarea placeholder="Tell us about your shoot" aria-label="Message"></textarea>
+          <button class="primary-action" type="button">Send Inquiry</button>
+        </form>
+        <div class="social-links" id="socialLinks"></div>
+      </section>
+    </main>
+
+    <dialog id="lightbox">
+      <button class="icon-button close-button" id="closeLightbox" type="button" aria-label="Close preview">x</button>
+      <div id="lightboxImage" class="lightbox-image"></div>
+      <div>
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxMeta"></p>
+        <button class="secondary-action" id="shareImage" type="button">Share</button>
+      </div>
+    </dialog>
+
+    <footer class="site-footer" data-theme-target="footer">
+      <div class="footer-copy">
+        <span class="footer-brand">NoirLens Studio</span>
+        <p>Premium photography experiences for weddings, brands, portraits, events, and private client galleries.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#booking">Booking</a>
+        <a href="#proofing">Proofing</a>
+      </nav>
+      <div class="footer-contact">
+        <span>Studio Desk</span>
+        <a href="#contact">Send inquiry</a>
+        <a href="admin.html">Admin portal</a>
+      </div>
+      <div class="footer-qr">
+        <img src="assets/website-qr.svg" alt="QR code to open NoirLens Studio website" />
+        <div>
+          <strong>Scan to visit</strong>
+          <small>Open this website with QR code</small>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
