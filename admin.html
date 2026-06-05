@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Panel - NoirLens Studio</title>
+    <meta name="description" content="Admin dashboard for editing the photography platform." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-page">
+    <header class="site-header">
+      <a class="brand" href="index.html#home" aria-label="Back to website">
+        <span class="brand-mark">NL</span>
+        <span>NoirLens Admin</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Admin navigation">
+        <a href="#content">Content</a>
+        <a href="#pricingAdmin">Pricing</a>
+        <a href="#payments">Payments</a>
+        <a href="#portfolioAdmin">Photos</a>
+        <a href="#theme">Theme</a>
+        <a href="index.html#home">Website</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="modeToggle" type="button" aria-label="Toggle dark mode">D/L</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="admin-hero">
+        <div>
+          <p class="eyebrow">Super admin panel</p>
+          <h1>Website Control</h1>
+          <p class="muted">Login kore website-er content, payment gateway, photos, theme, modules, SEO and store settings manage korun.</p>
+        </div>
+        <a class="secondary-action" href="index.html#home">Back to Website</a>
+      </section>
+
+      <section class="admin-login-panel" id="adminLoginPanel">
+        <div>
+          <h2>Admin Login</h2>
+          <p class="muted">Demo credential: admin@gmail.com / admin</p>
+        </div>
+        <form class="admin-login-form" id="adminLoginForm">
+          <label>
+            Email
+            <input name="email" type="email" value="admin@gmail.com" autocomplete="username" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" value="admin" autocomplete="current-password" required />
+          </label>
+          <button class="primary-action" type="submit">Login</button>
+        </form>
+        <p class="status-line" id="adminLoginStatus" aria-live="polite"></p>
+      </section>
+
+      <section class="admin-layout is-locked" id="adminDashboard">
+        <aside class="admin-menu" id="adminMenu" aria-label="Admin tools"></aside>
+        <div class="admin-workspace">
+          <div class="admin-session">
+            <span>Logged in as <strong>admin@gmail.com</strong></span>
+            <button class="secondary-action" id="adminLogout" type="button">Logout</button>
+          </div>
+
+          <div class="admin-panel" data-panel="dashboard">
+            <div class="analytics-grid">
+              <article><span>Total visitors</span><strong>128K</strong></article>
+              <article><span>Bookings</span><strong id="bookingCount">0</strong></article>
+              <article><span>Revenue</span><strong>$212K</strong></article>
+              <article><span>Photo uploads</span><strong id="uploadCount">0</strong></article>
+            </div>
+          </div>
+
+          <div class="cms-panel admin-panel" id="content" data-panel="content">
+            <h2>Website content editor</h2>
+            <form class="settings-form" id="contentForm">
+              <label>Brand name <input name="brand" type="text" /></label>
+              <label>Hero eyebrow <input name="eyebrow" type="text" /></label>
+              <label>Hero headline <input name="headline" type="text" /></label>
+              <label>Hero subtitle <textarea name="subtitle"></textarea></label>
+              <label>Contact heading <textarea name="contactTitle"></textarea></label>
+              <button class="primary-action" type="submit">Save Content</button>
+            </form>
+            <p class="status-line" id="contentStatus"></p>
+          </div>
+
+          <div class="pricing-admin-panel admin-panel" id="pricingAdmin" data-panel="pricing">
+            <div>
+              <h2>Services and pricing editor</h2>
+              <p class="muted">Package title, price, service features edit korun. New package add/remove korle public pricing section update hobe.</p>
+            </div>
+            <form class="pricing-editor" id="pricingForm"></form>
+            <button class="secondary-action" id="addPricingPlan" type="button">Add New Package</button>
+            <p class="status-line" id="pricingStatus"></p>
+          </div>
+
+          <div class="payment-options admin-payment-panel admin-panel" id="payments" data-panel="payments">
+            <div>
+              <h2>Payment gateway numbers</h2>
+              <p class="muted">bKash, Nagad, Rocket number change/add kore public booking page-e show kora jabe.</p>
+            </div>
+            <form class="payment-editor" id="paymentForm"></form>
+            <button class="secondary-action" id="addPaymentMethod" type="button">Add Payment Method</button>
+            <p class="status-line" id="paymentStatus"></p>
+          </div>
+
+          <div class="upload-panel admin-panel" id="portfolioAdmin" data-panel="portfolio">
+            <div>
+              <h2>Portfolio photo upload</h2>
+              <p class="muted">Upload korle public portfolio gallery-te instantly publish hobe.</p>
+            </div>
+            <form class="upload-form" id="photoUploadForm">
+              <label>
+                Photo title
+                <input name="title" type="text" placeholder="New wedding story" required />
+              </label>
+              <label>
+                Category
+                <select name="category">
+                  <option>Wedding</option>
+                  <option>Pre-Wedding</option>
+                  <option>Event</option>
+                  <option>Fashion</option>
+                  <option>Product</option>
+                  <option>Corporate</option>
+                  <option>Travel</option>
+                  <option>Wildlife</option>
+                  <option>Portrait</option>
+                </select>
+              </label>
+              <label>
+                Photo file
+                <input name="photo" type="file" accept="image/*" required />
+              </label>
+              <button class="primary-action" type="submit">Upload Photo</button>
+            </form>
+            <p class="status-line" id="uploadStatus"></p>
+            <div class="uploaded-list" id="uploadedList"></div>
+          </div>
+
+          <div class="admin-panel cms-panel" data-panel="bookings">
+            <div>
+              <h2>Booking Calendar</h2>
+              <p class="muted">Client booking request ekhane show hobe. Public booking form submit korlei list update hobe.</p>
+            </div>
+            <div class="booking-list" id="bookingList"></div>
+          </div>
+
+          <div class="admin-panel cms-panel" data-panel="clients">
+            <div>
+              <h2>Clients</h2>
+              <p class="muted">Booking data theke client list auto create hoy.</p>
+            </div>
+            <div class="booking-list" id="clientList"></div>
+          </div>
+
+          <div class="admin-panel cms-panel" data-panel="private-galleries">
+            <h2>Private Galleries</h2>
+            <p class="muted">Proofing image, title, rating and watermark control korun.</p>
+            <form class="admin-list-editor" id="proofAdminForm"></form>
+            <button class="secondary-action" id="addProofItem" type="button">Add Proof Image</button>
+            <p class="status-line" id="proofAdminStatus"></p>
+          </div>
+
+          <div class="admin-panel cms-panel" data-panel="orders">
+            <h2>Online Store Manager</h2>
+            <p class="muted">Product picture, title, description and price change korun.</p>
+            <form class="admin-list-editor" id="storeAdminForm"></form>
+            <button class="secondary-action" id="addStoreProduct" type="button">Add Product</button>
+            <p class="status-line" id="storeAdminStatus"></p>
+          </div>
+
+          <div class="admin-panel cms-panel" data-panel="blog">
+            <h2>Blog Posts</h2>
+            <p class="muted">Professional blog card content edit/add/remove korun.</p>
+            <form class="admin-list-editor" id="blogAdminForm"></form>
+            <button class="secondary-action" id="addBlogPost" type="button">Add Blog Post</button>
+            <p class="status-line" id="blogAdminStatus"></p>
+          </div>
+
+          <div class="admin-panel cms-panel" data-panel="testimonials">
+            <h2>Testimonials</h2>
+            <div class="module-grid">
+              <article class="module-card"><strong>Approve reviews</strong><p class="muted">Feature client testimonials on the public site.</p></article>
+              <article class="module-card"><strong>Delete reviews</strong><p class="muted">Remove spam or outdated testimonials.</p></article>
+            </div>
+          </div>
+
+          <div class="admin-panel cms-panel" data-panel="seo">
+            <h2>SEO Tools</h2>
+            <div class="settings-form">
+              <label>Meta title <input type="text" value="NoirLens Studio Photography" /></label>
+              <label>Meta description <input type="text" value="Premium photography portfolio and booking platform" /></label>
+              <label>Open Graph title <input type="text" value="NoirLens Studio" /></label>
+              <label>Robots.txt <textarea>User-agent: *&#10;Allow: /</textarea></label>
+            </div>
+            <h2>Contact Social Links</h2>
+            <p class="muted">Facebook, X, WhatsApp, Instagram ba new link add korun. Public contact section-e show hobe.</p>
+            <form class="admin-list-editor" id="socialAdminForm"></form>
+            <button class="secondary-action" id="addSocialLink" type="button">Add Social Link</button>
+            <p class="status-line" id="socialAdminStatus"></p>
+          </div>
+
+          <div class="theme-builder admin-panel" id="theme" data-panel="theme">
+            <div>
+              <h2>Dynamic theme builder</h2>
+              <p class="muted">Color change save korle public website-o update hobe.</p>
+            </div>
+            <div class="swatch-grid">
+              <label>Primary <input type="color" data-color-var="--primary" value="#c7a465" /></label>
+              <label>Accent <input type="color" data-color-var="--accent" value="#6da08d" /></label>
+              <label>Surface <input type="color" data-color-var="--surface" value="#151414" /></label>
+              <label>Text <input type="color" data-color-var="--text" value="#f7f2e9" /></label>
+            </div>
+          </div>
+
+          <div class="cms-panel admin-panel" data-panel="roles">
+            <h2>User Roles</h2>
+            <div class="module-grid">
+              <article class="module-card"><strong>Super Admin</strong><p class="muted">Full website control.</p></article>
+              <article class="module-card"><strong>Admin</strong><p class="muted">Portfolio, bookings, clients and payments.</p></article>
+              <article class="module-card"><strong>Photographer</strong><p class="muted">Upload work and manage projects.</p></article>
+              <article class="module-card"><strong>Client</strong><p class="muted">View galleries and book services.</p></article>
+            </div>
+          </div>
+
+          <div class="cms-panel admin-panel" data-panel="modules">
+            <h2>Editable modules</h2>
+            <div class="module-grid" id="moduleGrid"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
